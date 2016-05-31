@@ -23,9 +23,11 @@ rescue OpenURI::HTTPError => e
 	else
 	end
 rescue SocketError
-	puts "#{line} returned a SocketError"
+    puts "Line #{counter} returned a SocketError"
 rescue Errno::ECONNRESET
-	puts "#{line} returned a reset by peer error"
+    puts "Line #{counter} returned a reset by peer error"
+rescue Exception => e
+    puts "Line #{counter} returned an error that we don't care to parse"
 end
 end
 
